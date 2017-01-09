@@ -59,11 +59,15 @@ public class PayTM extends CordovaPlugin {
                               final String email,
                               final String phone,
                               final String txn_amt,
+                              final String method,
                               final CallbackContext callbackContext){
 
-        paytm_service = PaytmPGService.getProductionService();
-
-        paytm_service = PaytmPGService.getStagingService();  //for testing environment
+        // paytm_service = PaytmPGService.getProductionService();
+		if(method.equals("staging")){
+			paytm_service = PaytmPGService.getStagingService();
+		}else{
+			paytm_service = PaytmPGService.getProductionService();
+		}
 
         Map<String, String> paramMap = new HashMap<String, String>();
         paramMap.put("REQUEST_TYPE", "DEFAULT");
