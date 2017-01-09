@@ -48,7 +48,7 @@ public class PayTM extends CordovaPlugin {
             throws JSONException {
         if (action.equals("startPayment")) {
             //orderid, cust_id, email, phone, txn_amt
-            startPayment(args.getString(0), args.getString(1), args.getString(2), args.getString(3), args.getString(4), callbackContext);
+            startPayment(args.getString(0), args.getString(1), args.getString(2), args.getString(3), args.getString(4), args.getString(5), callbackContext);
             return true;
         }
         return false;
