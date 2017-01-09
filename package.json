@@ -10,7 +10,9 @@
         "PayTM",
         " Payment",
         " Gateway",
-        " Mobile"
+        " Mobile",
+        " Cordova PayTM",
+        " Cordova Payment"
     ],
     "platforms": [
         "ios",
