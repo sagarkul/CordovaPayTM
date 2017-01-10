@@ -62,13 +62,15 @@ public class PayTM extends CordovaPlugin {
                               final String method,
                               final CallbackContext callbackContext){
 
-        // paytm_service = PaytmPGService.getProductionService();
-		if(method.equals("staging")){
-			paytm_service = PaytmPGService.getStagingService();
-		}else{
-			paytm_service = PaytmPGService.getProductionService();
-		}
-
+          // paytm_service = PaytmPGService.getProductionService();
+        if(method.equals("staging")){
+            paytm_service = PaytmPGService.getStagingService();
+        }else if(method.equals("product")){
+            paytm_service = PaytmPGService.getProductionService();
+        }else{
+          return;
+        }
+	    
         Map<String, String> paramMap = new HashMap<String, String>();
         paramMap.put("REQUEST_TYPE", "DEFAULT");
         paramMap.put("ORDER_ID", order_id);
@@ -106,6 +108,7 @@ public class PayTM extends CordovaPlugin {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+		Log.v("onTransactionSuccess",  paymentResponse.toString());
                 callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, paymentResponse.toString()));
             }
 
@@ -113,7 +116,7 @@ public class PayTM extends CordovaPlugin {
             public void onTransactionFailure(String inErrorMessage,Bundle inResponse)
             {
                 Log.i("Error","onTransactionFailure :"+inErrorMessage);
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, 0));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, inErrorMessage));
             }
 
 
@@ -121,7 +124,7 @@ public class PayTM extends CordovaPlugin {
             public void clientAuthenticationFailed(String inErrorMessage)
             {
                 Log.i("Error","clientAuthenticationFailed :"+inErrorMessage);
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, 0));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, inErrorMessage));
             }
 
 
@@ -129,7 +132,7 @@ public class PayTM extends CordovaPlugin {
             public void networkNotAvailable() {
                 // TODO Auto-generated method stub
                 Log.i("Error","networkNotAvailable");
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, 0));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, "NetworkNotAvailable"));
             }
 
             @Override
@@ -138,14 +141,14 @@ public class PayTM extends CordovaPlugin {
                 Log.i("Error","onErrorLoadingWebPage arg0  :"+arg0);
                 Log.i("Error","onErrorLoadingWebPage arg1  :"+arg1);
                 Log.i("Error","onErrorLoadingWebPage arg2  :"+arg2);
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, 0));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, "ErrorLoadingWebPage"));
             }
 
             @Override
             public void someUIErrorOccurred(String arg0) {
                 // TODO Auto-generated method stub
                 Log.i("Error","someUIErrorOccurred :"+arg0);
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, 0));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, "UIErrorOccurred"));
             }
         });
     }
