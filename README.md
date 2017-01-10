@@ -1,5 +1,10 @@
 # CordovaPayTM
 
+---
+title: Whitelist
+description: Whitelist external content accessible by your app.
+---
+
 This plugin has only been tested in Cordova 3.2 or greater, and its use in previous Cordova versions is not recommended (potential conflict with keyboard customization code present in the core in previous Cordova versions).
 
 If you do use this plugin in an older Cordova version (again, not recommended), you have to make sure the HideKeyboardFormAccessoryBar and KeyboardShrinksView preference values are always false, and only use the API functions to turn things on/off.
