@@ -53,10 +53,8 @@ window.plugins.paytm.startPayment(txn_id, customer_id, email, phone, amount, met
             }
   
 ## Credits
-It was originally created by samyam-a, and i just updated callback response, staging support(testing).
+It was originally created by samyam-a, and i have updated callback success response, error response with code, staging(testing) and live support.
 
 ## Issues or New enhancements
 Feel free ask ask questions n even i love new request..
 
-
- 
