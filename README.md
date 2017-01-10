@@ -1,9 +1,12 @@
 # CordovaPayTM
 
----
-title: Whitelist
-description: Whitelist external content accessible by your app.
----
+Supporting platform
+
+|    Platform     |    OS level    |
+|:---------------:|:--------------:|
+|     Android     |  Android 4.0+  | 
+|     iOS         |   iOS 7.0+     | 
+
 
 This plugin has only been tested in Cordova 3.2 or greater, and its use in previous Cordova versions is not recommended (potential conflict with keyboard customization code present in the core in previous Cordova versions).
 
@@ -17,21 +20,18 @@ Methods
   staging support
   live support
 
-Supported Platforms
-
-iOS
-Android
-
 cordova plugin add https://github.com/isathyam/CordovaPayTM.git --variable GENERATE_URL=<Checksum Generation URL> --variable VERIFY_URL=<Checksum Validation Url> --variable MERCHANT_ID=<MerchantID> --variable INDUSTRY_TYPE_ID=<IndustryType> --variable WEBSITE=<WAPWebsiteName>
 
 
 Usage
-window.plugins.paytm.startPayment(txn_id, customer_id, email, phone, amount, successCallback, failureCallback);
+window.plugins.paytm.startPayment(txn_id, customer_id, email, phone, amount, method, successCallback, failureCallback);
 
 Methods: 
-  Staging support will be added in near future
+  method type are 2 :
   
-  Now supports live payTm service.
+  Pass "staging" for Staging(Testing support)
+  Pass "product" for Staging(Live support)
+  
 
 It was originally created by samyam-a, and i just updated callback response, staging support(testing).
 All credit should goes to samyam-a.
