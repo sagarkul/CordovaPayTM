@@ -1,27 +1,43 @@
 {
-    "version": "0.0.1",
-    "name": "com.paytm.cordova",
-    "cordova_name": "PayTM",
-    "description": "\n      This Plugin allows you to integrate PayTM application into a cordova app.",
-    "license": "MIT",
-    "repo": "https://github.com/isathyam/CordovaPayTM.git",
-    "issue": "https://github.com/isathyam/CordovaPayTM/issues",
-    "keywords": [
-        "PayTM",
-        " Payment",
-        " Gateway",
-        " Mobile",
-        " Cordova PayTM",
-        " Cordova Payment"
-    ],
+  "version": "0.0.1",
+  "name": "com.paytm.cordova",
+  "cordova_name": "PayTM",
+  "description": "\n      This Plugin allows you to integrate PayTM application into a cordova app.",
+  "license": "MIT",
+  "repo": "https://github.com/isathyam/CordovaPayTM.git",
+  "issue": "https://github.com/isathyam/CordovaPayTM/issues",
+  "keywords": [
+    "PayTM",
+    " Payment",
+    " Gateway",
+    " Mobile",
+    " Cordova PayTM",
+    " Cordova Payment"
+  ],
+  "platforms": [
+    "ios",
+    "android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "cordova": {
+    "id": "com.paytm.cordova",
     "platforms": [
-        "ios",
-        "android"
-    ],
-    "engines": [
-        {
-            "name": "cordova",
-            "version": ">=3.0.0"
-        }
+      "ios",
+      "android"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagarkul/CordovaPayTM.git"
+  },
+  "author": "Sagar Kulkarni",
+  "bugs": {
+    "url": "https://github.com/sagarkul/CordovaPayTM/issues"
+  },
+  "homepage": "https://github.com/sagarkul/CordovaPayTM#readme"
 }
